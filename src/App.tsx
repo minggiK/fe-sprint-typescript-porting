@@ -1,30 +1,32 @@
 import TodoForm from './component/TodoForm';
 import Todo from './component/Todo';
 import { useState } from 'react';
+import TodoTypes from './component/TodoTypes';
 import './todos.css';
 
 function Todos() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<TodoTypes[]>([]);
 
-  const addTodo = todo => {
+  
+  const addTodo = (todo: TodoTypes): void => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
 
-    const newTodos = [todo, ...todos];
+    const newTodos: TodoTypes[] = [todo, ...todos];
 
     setTodos(newTodos);
   };
 
 
-  const removeTodo = id => {
+  const removeTodo = (id: number): void => {
     const removeArr = [...todos].filter(todo => todo.id !== id);
 
     setTodos(removeArr);
   };
 
-  const completeTodo = id => {
-    const completedTodo = todos.map(todo => {
+  const completeTodo = (id: number): void => {
+    const completedTodo = todos.map((todo) : TodoTypes => {
       if (todo.id === id) {
         todo.isComplete = !todo.isComplete
       }

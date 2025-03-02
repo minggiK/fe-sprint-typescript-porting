@@ -1,0 +1,20 @@
+//tsconfig.json
+//compilerOptions 내의 속성은 자유롭게 커스텀 할 수 있습니다.
+{
+    "compilerOptions": {
+      // "target": "es6",
+      // "module": "commonjs",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "jsx": "react-jsx",
+      "strict": true,
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "module": "esnext",
+      "target": "esnext"
+  
+    },
+    "include": [
+      "src/**/*"
+, "src/TodoTypes.tsx"    ]
+  }

@@ -1,5 +1,13 @@
+import TodoTypes from "./TodoTypes";
 
-function Todo({ todos, completeTodo, removeTodo }) {
+interface TodoList {
+  todos: TodoTypes[]
+  completeTodo: (id: number) => void; 
+  removeTodo: (id: number) => void;
+
+}
+
+function Todo({ todos, completeTodo, removeTodo}: TodoList) {
 
   return (
     <div className='wrapper-todo'>
